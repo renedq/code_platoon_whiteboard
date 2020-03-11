@@ -1,0 +1,2 @@
+pandoc -t revealjs --standalone -fmarkdown-implicit_figures  -V transition='none' -V slideNumber="'c/t'" index.md -o index.html
+

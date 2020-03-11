@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Kent Cowgill">
+  <meta name="dcterms.date" content="2020-02-02">
+  <title>Shell Productivity</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Shell Productivity</h1>
+  <p class="author">Kent Cowgill</p>
+  <p class="date">2020-02-02</p>
+</section>
+
+<section id="terminalshell" class="slide level3">
+<h3>Terminal/Shell</h3>
+<p>MacOS</p>
+<ul>
+<li>iTerm2</li>
+</ul>
+</section>
+<section class="slide level3">
+
+<h5 id="zsh">zsh</h5>
+<p>Alternative to bash</p>
+<ul>
+<li>Consolidated history</li>
+<li>(Many terminals, one history)</li>
+<li>Visual tab completion</li>
+<li>Command autocorrection</li>
+<li>Many more features</li>
+</ul>
+<p>http://go/whyz</p>
+<p>http://zsh.sourceforge.net/</p>
+</section>
+<section class="slide level3">
+
+<h5 id="oh-my-zsh">oh my zsh</h5>
+<p>A community-driven framework for managing your zsh configuration.</p>
+<p>Hundreds of plugins to add features and functionality.</p>
+<p><img src="ohmy.png" /></p>
+<p>https://ohmyz.sh/</p>
+</section>
+<section class="slide level3">
+
+<h5 id="powerlevel10k">powerlevel10k</h5>
+<p>A theme for zsh that emphasizes <strong>speed</strong>, <strong>flexibility</strong>, and <strong>out-of-the-box experience</strong>. Plus cools icons.</p>
+<p><img src="p10k.png" /></p>
+<p>https://github.com/romkatv/powerlevel10k</p>
+</section>
+<section class="slide level3">
+
+<p>Vim:</p>
+<ol type="1">
+<li>is everywhere</li>
+<li>is well documented</li>
+<li>is very customizable and extensible</li>
+<li>has portable configurations</li>
+<li>isn't (system) resource intensive</li>
+<li>supports all programming languages and file formats</li>
+</ol>
+</section>
+<section class="slide level3">
+
+<p>Vim configuration basics:</p>
+<ol type="1">
+<li>Store all of your configuration files in source control</li>
+<li>...</li>
+<li>Profit!</li>
+</ol>
+</section>
+<section class="slide level3">
+
+<h6 id="vimrc">.vimrc</h6>
+<pre class="vimrc"><code>set nocompatible
+filetype off    &quot; Required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin &#39;VundleVim/Vundle.vim&#39;
+Plugin &#39;scrooloose/nerdtree&#39;
+Plugin &#39;tpope/vim-fugitive&#39;
+Plugin &#39;Xuyuanp/nerdtree-git-plugin&#39;
+Plugin &#39;ryanoasis/vim-devicons&#39; &quot; keep this one last
+call vundle#end()            &quot; required
+
+filetype plugin indent on &quot; Required
+set nu</code></pre>
+</section>
+<section class="slide level3">
+
+<h6 id="vimrc-1">.vimrc</h6>
+<pre class="vim"><code>&quot; persistent undo, save undo files in ~/.vim/undo
+set undofile
+set undodir=~/.vim/undo/</code></pre>
+</section>
+<section class="slide level3">
+
+<h6 id="vimrc-2">.vimrc</h6>
+<pre class="vim"><code>map &lt;leader&gt;b :buffers&lt;cr&gt;
+&quot; set some easy key mappings for switching buffers: when switching to a buffer
+&quot; above or below, completely expand it, shrinking all others maximally
+nmap &lt;c-k&gt; &lt;c-w&gt;k&lt;c-w&gt;_
+nmap &lt;c-j&gt; &lt;c-w&gt;j&lt;c-w&gt;_
+&quot; shorthand for switching to right/left buffers and maximizing vertically
+nmap &lt;c-l&gt; &lt;c-w&gt;l&lt;c-w&gt;\|
+nmap &lt;c-h&gt; &lt;c-w&gt;h&lt;c-w&gt;\|
+&quot; set a min window height/width for stacking windows
+set wmh=0
+set wmw=0</code></pre>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
